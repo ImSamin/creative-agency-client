@@ -1,3 +1,41 @@
+body{
+  font-family:Poppins;
+}
+
+.section {
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+.btn-brand{
+  background:#111430; 
+}
+.text-brand{
+  color:#171B4E;
+  
+}
+
+.text-green{
+  color:#7AB259
+}
+
+.font-poppins{
+  font-family: Poppins;
+  /* font-weight: 700; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .App {
   text-align: center;
 }
