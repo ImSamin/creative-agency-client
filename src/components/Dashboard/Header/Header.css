@@ -1,0 +1,8 @@
+@media (max-width: 700px) {
+  .ds-header h5 {
+    font-size: 15px;   
+  }
+  .ds-header h6{
+      font-size: 12px;
+  }
+}

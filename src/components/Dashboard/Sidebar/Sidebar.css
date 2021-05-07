@@ -1,0 +1,26 @@
+.side-menu li{
+    margin-bottom: 1em;
+}
+
+.side-menu li:hover span{
+    display: inline-block;
+    transform: translate(3px);
+    cursor: pointer;
+    color:  #009444;
+
+}
+.side-menu svg{
+    margin-right: 5px;
+}
+
+@media (max-width: 1000px) {
+  .side-menu li {
+    font-size: 10px;
+      
+  }
+  .logo img{
+    height: 20px
+  }
+}
+
+
