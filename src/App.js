@@ -9,8 +9,10 @@ import Login from './components/Login/Login';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 import OrderList from './components/Dashboard/OrderList/OrderList';
+import AddAdmin from './components/Dashboard/AddAdmin/AddAdmin';
+import AdminServiceList from './components/Dashboard/AddminServiceList/AdminServiceList';
 
-export const userContext = createContext()
+export const userContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -24,10 +26,13 @@ function App() {
           <Route path='/login'>
             <Login />
           </Route>
-          <PrivateRoute path='/dashboard/add-order/:id'>
+          <PrivateRoute exact path='/dashboard/add-order'>
             <Order />
           </PrivateRoute>
-          <PrivateRoute path='/dashboard/add-service'>
+          <PrivateRoute exact path='/dashboard/add-order/:id'>
+            <Order />
+          </PrivateRoute>
+          <PrivateRoute exact path='/dashboard/add-service'>
             <AddService />
           </PrivateRoute>
           <PrivateRoute path='/dashboard/order-list'>
@@ -35,6 +40,12 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path='/dashboard/add-review'>
             <AddReview />
+          </PrivateRoute>
+          <PrivateRoute path='/dashboard/add-admin'>
+            <AddAdmin />
+          </PrivateRoute>
+          <PrivateRoute path='/dashboard/admin-service-list'>
+            <AdminServiceList/>
           </PrivateRoute>
         </Switch>
       </Router>

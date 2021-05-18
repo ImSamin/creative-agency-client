@@ -23,9 +23,9 @@ const Navbar = () => {
                             <Link class="nav-link mr-4 text-dark" href="#">Our Team</Link>
                         </li>
                         <li class="nav-item">
-                            <Link class="nav-link mr-4 text-dark" href="#">Contact Us</Link>
+                            <Link to="/dashboard/order-list" class="nav-link mr-4 text-dark">Dashboard</Link>
                         </li>
-                       <Link path="/login">
+                       <Link to="/login">
                             <button className="btn btn-primary btn-brand  px-5">Login</button>
                        </Link>
                         

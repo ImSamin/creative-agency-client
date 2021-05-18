@@ -4,10 +4,11 @@ import Sidebar from '../Sidebar/Sidebar';
 import ReviewForm from './ReviewForm';
 
 const AddReview = () => {
+    const name = {name: 'Review'};
     return (
         <div className="container-fluid order-container">
             <div className="header bg-White ">
-                <Header></Header>
+                <Header name={name.name}></Header>
             </div>
             <div className="sidebar bg-White">
                 <Sidebar></Sidebar>

@@ -2,20 +2,20 @@ import React, { useContext, useEffect, useState } from 'react';
 import { userContext } from '../../../App';
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
-import OrdersCard from './OrdersCard';
+import OrdersTable from './OrdersTable';
 
-const OrderList = () => {
-    const [orderList, setOrderList] = useState();
+const AdminServiceList = () => {
+    const name = {name: 'Service List'};
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
-    const name = { name: 'Your Orders' };
+    const [ordersList , setOrderList] = useState();
 
     useEffect(() => {
         fetch(`http://localhost:5000/orders?email=${loggedInUser.email}`)
-        .then(res => res.json())
-        .then(data => {
-            setOrderList(data)
-        })
-    },[])
+            .then(res => res.json())
+            .then(data => {
+                setOrderList(data);
+            })
+    }, []);
     return (
         <div className="container-fluid order-container">
             <div className="header bg-White ">
@@ -24,16 +24,11 @@ const OrderList = () => {
             <div className="sidebar bg-White">
                 <Sidebar></Sidebar>
             </div>
-            <div className="content container-fluid">
-                <div className="row  mt-4 px-2">
-                    {
-                        orderList && orderList.map(order => <OrdersCard orderList={order} key={order._id}></OrdersCard>)
-                    }
-                </div>
+            <div className="content ">
+                <OrdersTable ordersList={ordersList} ></OrdersTable>
             </div>
-
         </div>
     );
 };
 
-export default OrderList;
+export default AdminServiceList;

@@ -23,10 +23,21 @@ const Login = () => {
             .then((result) => {
                 setLoggedInUser(result.user);
                 history.replace(from);
+                storeAuthToken()
             }).catch((error) => {
                
             });
     }
+
+    const storeAuthToken = () => {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
+            sessionStorage.setItem('token', idToken);
+            history.replace(from);
+        }).catch(function (error) {
+            // Handle error
+        });
+    }
+
     return (
         <section className="" >
             <div className="text-center p-4">

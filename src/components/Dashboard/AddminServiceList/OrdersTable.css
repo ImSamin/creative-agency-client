@@ -1,0 +1,5 @@
+select {
+	border: none;
+	outline: none;
+	cursor: context-menu;
+}

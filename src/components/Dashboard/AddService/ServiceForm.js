@@ -10,7 +10,7 @@ const ServiceForm = () => {
     console.log(file)
 
     const handleBlur = e => {
-        const newService = { ...service};
+        const newService = { ...service };
         newService[e.target.name] = e.target.value;
         setService(newService);
     }
@@ -38,34 +38,37 @@ const ServiceForm = () => {
                 console.log(data)
             })
             .catch(error => {
-                
+
                 console.error(error)
             })
     }
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="row  m-5 p-5 bg-white rounded shadow">
-            <div className="col-md-6">
-                <div className="form-group">
-                    <label htmlFor="">Service Title</label>
-                    <input onBlur={handleBlur} type="text" className="form-control" required name="title" />
+        <div className="mt-5 mx-3 bg-white rounded">
+            <form onSubmit={handleSubmit(onSubmit)} className="row px-3 py-4 ">
+                <div className="col-md-6">
+                    <div className="form-group">
+                        <label htmlFor="">Service Title</label>
+                        <input onBlur={handleBlur} type="text" className="form-control" required name="title" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="">Description</label>
+                        <textarea onBlur={handleBlur} required type="text" className="form-control" cols="4" rows="6" name="description" />
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="">Description</label>
-                    <textarea onBlur={handleBlur} required type="text" className="form-control" cols="4" rows="6" name="description" />
+                <div className="col-md-6 ">
+                    <label htmlFor="">Icon</label>
+                    <br />
+                    <input onChange={handleFileChange} type="file" required />
                 </div>
-            </div>
-            <div className="col-md-6 ">
-                <label htmlFor="">Icon</label>
-                <br />
-                <input onChange={handleFileChange} type="file" required />
-            </div>
 
-            <div className="form-group px-3 ">
-                <button type="submit" className="btn btn-brand text-white">
-                    Submit
+                <div className="form-group px-3 ">
+                    <button type="submit" className="btn btn-brand text-white">
+                        Submit
                </button>
-            </div>
-        </form>
+                </div>
+
+            </form>
+        </div>
     );
 };
 

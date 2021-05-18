@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { userContext } from '../../../App';
 import './Header.css';
-const Header = () => {
-    const [service, setService] = useState()
+const Header = ({name}) => {
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
     return (
         <div className=" ds-header d-flex justify-content-between py-4 mx-5">
-            <h5> Order </h5>
-            <h6>User Name</h6>
+            <h5> {name} </h5>
+            <div className="d-flex align-items-center">
+                <img className="rounded-circle mr-2 " style={{ height: '30px' }} src={loggedInUser.photoURL} alt="" />
+                <h6>{loggedInUser.displayName}</h6>
+            </div>
         </div>
     );
 };
