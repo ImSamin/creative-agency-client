@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/isAdmin', {
+        fetch('https://radiant-everglades-28841.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
@@ -31,27 +31,7 @@ const Sidebar = () => {
             </div>
 
             <div className="side-menu pl-4 py-5">
-                <ul className="list-unstyled">
-
-                    {
-                        isAdmin ? <div>
-                            <li>
-                                <Link to='/dashboard/admin-service-list' className="text-dark">
-                                    <FontAwesomeIcon icon={faClipboardList} /> <span>Service List</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/dashboard/add-service' className="text-dark">
-                                    <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to='/dashboard/add-admin' className="text-dark">
-                                    <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
-                                </Link>
-                            </li>
-                        </div>
-                            :
+                <ul className="list-unstyled">    
                             <div>
                                 <li>
                                     <Link to='/dashboard/add-order' className="text-dark">
@@ -69,7 +49,27 @@ const Sidebar = () => {
                                     </Link>
                                 </li>
                             </div>
+
+                    {
+                        isAdmin && <div>
+                            <li>
+                                <Link to='/dashboard/admin-service-list' className="text-dark">
+                                    <FontAwesomeIcon icon={faClipboardList} /> <span>Service List</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/dashboard/add-service' className="text-dark">
+                                    <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/dashboard/add-admin' className="text-dark">
+                                    <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
+                                </Link>
+                            </li>
+                        </div>
                     }
+                    
                 </ul>
             </div>
         </div>

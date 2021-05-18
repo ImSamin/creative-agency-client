@@ -16,7 +16,7 @@ const OrderForm = () => {
             data.image = selectedService.image;
         } 
         data.date = new Date();
-        fetch('http://localhost:5000/addOrders', {
+        fetch('https://radiant-everglades-28841.herokuapp.com/addOrders', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -30,7 +30,7 @@ const OrderForm = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://radiant-everglades-28841.herokuapp.com/services')
             .then(res => res.json())
             .then(data => {
                 setSelectedService(data.find((item) => item._id === id));

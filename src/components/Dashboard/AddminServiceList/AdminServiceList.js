@@ -10,7 +10,7 @@ const AdminServiceList = () => {
     const [ordersList , setOrderList] = useState();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${loggedInUser.email}`)
+        fetch(`https://radiant-everglades-28841.herokuapp.com/orders?email=${loggedInUser.email}`)
             .then(res => res.json())
             .then(data => {
                 setOrderList(data);

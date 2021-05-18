@@ -8,7 +8,7 @@ const ReviewForm = () => {
 
     const onSubmit = data => {
         data.img = loggedInUser.photoURL;
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://radiant-everglades-28841.herokuapp.com/addReview', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(data)
